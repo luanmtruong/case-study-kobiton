@@ -1,5 +1,5 @@
 ---
-title: "Infrastructure Provisioning"
+title: "Case Study: Refactoring Legacy CI/CD Pipeline with GitHub Actions and IaC"
 image: preview.png
 format:
   revealjs:
@@ -11,114 +11,73 @@ format:
       data-background-transition: slide
 ---
 
-# Infrastructure provisioning {background-image="assets/background.png"}
+# Case Study: Refactoring Legacy CI/CD Pipeline with GitHub Actions and IaC
+
+# Background and Challenges
+
 ::: {.fragment}
-- Manual provisioning
+- Overview of the legacy CI/CD pipeline
 :::
 ::: {.fragment}
-- Automated provisioning (via IaC)
+- Pain points and inefficiencies
+:::
+::: {.fragment}
+- Need for modernization and cost reduction
 :::
 
-::: {.notes}
-is the process of setting up and configuring necessary resources such as servers, networks, hard drives to support software or service running. In the process of setting up, there will be physical servers and virtual servers, cloud
-:::
+# Solution Overview
 
-# Problem With Manual Provisioning {background-image="assets/background.png"}
-- Prone to human error
-- Time-consuming
-- Difficult to track changes and maintain consistency
+- Adoption of GitHub Actions for CI/CD
+- Implementation of Infrastructure as Code (IaC)
+- Introduction of GitOps principles
 
-# What exactly is Infrastructure as Code anyway? {background-image="assets/background.png"}
+# GitHub Actions Implementation
 
-::: {.notes}
-Picture this: instead of manually clicking through endless setup screens or running commands till your fingers hurt, you write a few lines of code, hit "run," and voila! Your entire infrastructure springs to life. That's IaC in a nutshell.
+- Key features utilized
+- Workflow structure and organization
+- Integration with existing systems
 
-Gone are the days of "Bob's the only one who knows how to set up the staging environment" or "Why does production look different from dev?" With IaC, your infrastructure becomes as manageable as your application code. Version control? Check. Reproducibility? You bet. Collaboration? Absolutely!
-:::
+# Infrastructure as Code (IaC) Approach
 
-# Why should you care?{background-image="assets/background.png"}
-- Consistency across environments (dev, staging, prod)
-- Faster deployment and scalability
-- Cost savings
-- Easily version-controlled via Git
+- Tools and technologies used (e.g., Terraform, CloudFormation)
+- Benefits of IaC in this context
+- Example of infrastructure defined as code
 
-# IaC Tools {.nostretch background-transition="slide" background-image="assets/background.png"}
+# GitOps Implementation
 
-![](assets/iac-tools.png){fig-align="center"}
+- Explanation of GitOps principles applied
+- Version control and automated deployments
+- Improved collaboration and transparency
 
-::: {.notes}
-- Terraform: Cloud-agnostic tool, declarative, infrastructure provisioning.
-- AWS CloudFormation: AWS-specific, declarative, tightly integrated with AWS.
-- Ansible: Configuration management, can also be used for infrastructure automation, imperative.
-- Pulumi: Uses real programming languages for IaC, supports multiple clouds.
-:::
+# Results - Time Savings
 
-# Here's how it works:{background-image="assets/background.png"}
+- Reduction in time to bring up new environments
+- Decreased build times
+- Quantitative comparison with the legacy system
 
-1. You write code describing your infrastructure.
-2. Terraform says, "Cool, here's what I'm gonna do."
-3. You say "yes", and Terraform makes it happen.
+# Results - Cost Savings
 
-## Show me the code!
-```{.hcl code-line-numbers="|1|5"}
-provider "aws" {
-  region = "us-west-2"
-}
+- ~50% reduction in AWS costs
+- Breakdown of cost savings areas
+- Resource optimization achievements
 
-resource "aws_instance" "example" {
-  ami           = "ami-12345678"
-  instance_type = "t2.micro"
-}
-```
-::: {.notes}
-- Provider:
-  - Interacts with a cloud service (i.e. GCP, AWS, Azure)
-  - Affects change in a cloud service (i.e. creating/destroying resources) using the service’s API
+# Resource Efficiency
 
-- Resource:
-  - An infrastructure component
-  - i.e. VMs, Networks, Containers, Hard Drives, Storage Buckets
-:::
+- Reduction in wasted resources
+- Improved resource allocation and utilization
+- Environmental impact (if applicable)
 
-## More code!
-```{.hcl code-line-numbers="|1-2|13-19"}
-module "ec2-test" {
-  source = "terraform-aws-modules/ec2-instance/aws"
+# Lessons Learned
 
-  name = "ec2-test"
+- Key takeaways from the refactoring process
+- Challenges faced and how they were overcome
+- Best practices identified
 
-  ami                    = "ami-078c1149d8ad719a7"
-  instance_type          = "m6a.2xlarge"
-  key_name               = "kobiton-test-devops"
-  monitoring             = false
-  vpc_security_group_ids = ["sg-035917cfc304b6e4c"]
-  subnet_id              = "subnet-024ca33484e1eac99"
-  enable_volume_tags = false
-  root_block_device = [
-    {
-      encrypted   = false
-      volume_type = "gp3"
-      volume_size = 100
-    },
-  ]
-}
-```
+# Future Improvements
 
-# {#demo .nostretch background-color="#030525" background-transition="slide"}
-
-:::: {.columns .v-center-container}
-
-::: {.column style="width: 40%; text-align: center; font-size: 200%"}
-**MOAR CODE!!!**
-:::
-
-::: {.column width="60%"}
-![](assets/unicorn.png){fig-align="center"}
-:::
-
-::::
-
-## Demo content
+- Planned enhancements to the new system
+- Potential areas for further optimization
+- Long-term strategy and goals
 
 # Thank you
 
