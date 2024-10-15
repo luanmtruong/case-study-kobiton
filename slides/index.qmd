@@ -1,83 +1,107 @@
 ---
 title: "Case Study: Refactoring Legacy CI/CD Pipeline with GitHub Actions and IaC"
-image: preview.png
+date: "2024-11-11"
+event: "KMS Event"
 format:
   revealjs:
-    css: custom.css
     navigation-mode: vertical
-    title-slide-no-content: true
     title-slide-attributes:
-      data-background-image: preview.png
+      data-background-color: "#141226"
       data-background-transition: slide
 ---
 
-# Case Study: Refactoring Legacy CI/CD Pipeline with GitHub Actions and IaC
+# `whoami`
+
+**Luan M. Truong**
 
 # Background and Challenges
 
-::: {.fragment}
-- Overview of the legacy CI/CD pipeline
-:::
-::: {.fragment}
-- Pain points and inefficiencies
-:::
-::: {.fragment}
-- Need for modernization and cost reduction
-:::
+## Legacy CI/CD pipeline Overview
+- Using Jenkins with custom bash scripts inside a Docker container
+- Manual create environment
+
+## Pain Points and Inefficiencies
+- Long build and deployment times
+- Difficult to maintain and scale multiple environments
+- Highty AWS costs dual to inefficient resource usage
+
+## Modernization needs
+- Improve deployment speed and reliability
+- Reduce operational overhead
+- Better cost management
 
 # Solution Overview
-
 - Adoption of GitHub Actions for CI/CD
 - Implementation of Infrastructure as Code (IaC)
 - Introduction of GitOps principles
 
-# GitHub Actions Implementation
+## Adoption of GitHub Actions for CI/CD
+- Centralized workflow management
+- Built-in secrets management and security features
 
+## Implementation of Infrastructure as Code (IaC)
+- Automation of infrastructure provisioning
+- Version control and automated deployments
+- Reproducible and consistent environment setups
+
+## Introduction of GitOps principles
+- Github as the single source of truth for both code and infrastructure
+- Version control and automated deployments
+- Enhanced auditability and traceability of changes
+
+# GitHub Actions Implementation
 - Key features utilized
 - Workflow structure and organization
 - Integration with existing systems
 
 # Infrastructure as Code (IaC) Approach
-
-- Tools and technologies used (e.g., Terraform, CloudFormation)
+- Tools and technologies used (e.g., Terraform, Ansible)
 - Benefits of IaC in this context
 - Example of infrastructure defined as code
 
-# GitOps Implementation
+## Tools and Technologies Used
+- Terraform for multi-cloud provisioning
+- Ansible for configuration management
+- GitHub for version control
 
-- Explanation of GitOps principles applied
-- Version control and automated deployments
-- Improved collaboration and transparency
+## Benefits of IaC
+- Consistent and reproducible environments
+- Faster provisioning of new environments
+- Reduced human errors
+- Easier disaster recovery and scaling
 
-# Results - Time Savings
+# Results
 
+## Time Savings
 - Reduction in time to bring up new environments
 - Decreased build times
 - Quantitative comparison with the legacy system
 
-# Results - Cost Savings
-
+## Cost Savings
 - ~50% reduction in AWS costs
 - Breakdown of cost savings areas
 - Resource optimization achievements
 
-# Resource Efficiency
-
+## Resource Efficiency
 - Reduction in wasted resources
 - Improved resource allocation and utilization
 - Environmental impact (if applicable)
 
 # Lessons Learned
 
-- Key takeaways from the refactoring process
-- Challenges faced and how they were overcome
-- Best practices identified
+## Key takeaways from the refactoring process
+- Planning and assessment before implementation
+- Collaboration and communication among team members
+- Incremental changes over a "big bang" approach
+
+## Best practices identified
+- Start with a comprehensive audit of existing systems and processes
+- Invest in automation from the beginning to reduce manual effort
+- Regular review and optimize resource allocation
 
 # Future Improvements
-
-- Planned enhancements to the new system
-- Potential areas for further optimization
-- Long-term strategy and goals
+- Automation promotion between environments
+- Automated security scanning in CI/CD pipeline
 
 # Thank you
 
